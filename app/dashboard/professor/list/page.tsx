@@ -4,7 +4,7 @@ import { sql } from "@vercel/postgres";
 
 export default async function list() {
  
-    const { rows }= await sql`SELECT * FROM students`
+    const { rows }= await sql`SELECT * FROM professor`
 
     return (
         <div className="rounded-md border">
@@ -16,10 +16,10 @@ export default async function list() {
                     </TableRow>
                 </TableHeader>
                 <TableBody>
-                    {rows.map((student) => (
-                        <TableRow key={student.id}>
-                            <TableCell className="font-medium">{student.name}</TableCell>
-                            <TableCell>{student.email}</TableCell>
+                    {rows.map((professor) => (
+                        <TableRow key={professor.id}>
+                            <TableCell className="font-medium">{professor.name}</TableCell>
+                            <TableCell>{professor.email}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
